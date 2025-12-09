@@ -347,7 +347,7 @@ const LandingPage = () => {
           {events.slice(0, 3).map((event, i) => (
             <div
               key={i}
-              className={getCardClass(event)}
+              className={`${getCardClass(event)} flex flex-col items-center text-center`}
               style={{
                 width: "min(19.7vw, 300px)",
                 height: "min(19.7vw, 300px)",
@@ -426,7 +426,7 @@ const LandingPage = () => {
           {events.slice(3, 6).map((event, i) => (
             <div
               key={i + 3}
-              className={getCardClass(event)}
+              className={`${getCardClass(event)} flex flex-col items-center text-center`}
               style={{
                 width: "min(19.7vw, 300px)",
                 height: "min(19.7vw, 300px)",
