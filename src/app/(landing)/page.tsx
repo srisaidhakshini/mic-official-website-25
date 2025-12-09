@@ -86,7 +86,7 @@ export default function Landing() {
       />
 
       {/* Centered container with fixed aspect ratio */}
-      <div className="relative w-full max-w-[400px] aspect-[3/2] z-10">
+      <div className="absolute inset-0 w-screen h-screen z-10 flex items-center justify-center overflow-hidden">
         {/* Console component without props - it likely handles its own rendering */}
         <Console />
         <Cartridge inserted={inserted} onClick={handleInsert} />
