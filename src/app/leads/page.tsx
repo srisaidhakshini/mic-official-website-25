@@ -256,7 +256,14 @@ const MeetTheBoardPage: React.FC = () => {
 
           {/* Tenure Selection Button - Absolute position */}
           {view === 'departments' && (
-            <div className="absolute z-20" style={{ top: '80px', left: '49px' }}>
+            <div 
+              className="absolute z-20"
+              style={{
+                top: 'clamp(60px, 10vh, 80px)',
+                left: 'clamp(65px, 7vw, 140px)',
+                width: 'clamp(140px, 14vw, 205px)',
+              }}
+            >
               <YearButton 
                 selectedTenure={selectedTenure}
                 onTenureChange={setSelectedTenure}

@@ -33,45 +33,60 @@ const YearButton: React.FC<YearButtonProps> = ({ selectedTenure, onTenureChange 
   }, []);
 
   return (
-    <div className="relative inline-block z-20" ref={ref}>
+    <div className="relative inline-block z-20 w-full" ref={ref}>
       {/* Main Button */}
       <button
-        className="relative w-[296px] h-[74px] flex items-center justify-center border-none bg-transparent p-0 outline-none focus:outline-none focus-visible:outline-none cursor-pointer"
+        className="relative flex items-center justify-center border-none bg-transparent p-0 outline-none focus:outline-none focus-visible:outline-none cursor-pointer w-full"
         onClick={() => setIsOpen((prev) => !prev)}
-        style={{ outline: 'none' }}
+        style={{ 
+          outline: 'none',
+          height: 'auto',
+          minHeight: '50px'
+        }}
       >
         <Image
           src="/images/tenure.png"
           alt="Select Tenure"
           width={296}
           height={74}
-          className="absolute inset-0"
+          className="w-full h-auto"
+          style={{ display: 'block' }}
         />
       </button>
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute mt-2 w-[296px] z-30">
-          <div className="relative">
+        <div className="absolute mt-2 w-full z-30">
+          <div className="relative w-full">
             <Image
               src="/images/tenure-dd.png"
               alt="Tenure Dropdown"
               width={296}
               height={222}
-              className="w-full"
+              className="w-full h-auto"
+              style={{ display: 'block' }}
             />
             {tenures.map((tenure, index) => (
               <div
                 key={tenure.value}
-                className="absolute cursor-pointer"
+                className="absolute cursor-pointer transition-all duration-200 flex items-center justify-center font-press-start text-[#6B3E11]"
                 onClick={() => handleTenureClick(tenure.value)}
                 style={{
-                  top: `${20 + index * 63}px`,
-                  left: '0',
-                  width: '296px',
-                  height: '63px',
+                  top: `${9.5 + index * 29}%`,
+                  left: '4.8%',
+                  width: '90.4%',
+                  height: '27.8%',
+                  backgroundColor: 'transparent',
+                  fontSize: 'clamp(8px, 1.5vw, 14px)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(107, 224, 208, 0.5)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
                 }}
               >
+                {tenure.label}
               </div>
             ))}
           </div>
