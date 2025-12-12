@@ -382,7 +382,6 @@ const LandingPage = () => {
 <div className="relative flex items-center w-full h-12 mx-auto overflow-hidden" style={{ maxWidth: "min(63.2vw, 964px)" }}>
   
   {/* 1. THE MOVING PAC-MAN */}
-  {/* No mask div needed anymore! */}
   <div 
     className="absolute top-1/2 z-20 flex items-center animate-travel"
     style={{ transform: "translateY(-50%)" }} 
@@ -393,13 +392,11 @@ const LandingPage = () => {
         style={{
           width: "min(3.2vw, 48px)",
           height: "min(3.2vw, 48px)",
-          // transform: "rotate(0deg)" // Un-comment if he is facing wrong way
         }}
       />
   </div>
 
   {/* 2. THE PELLETS CONTAINER */}
-  {/* We apply 'animate-eat' to this container to progressively hide it */}
   <div className="pellets-row w-full flex justify-between px-2 relative z-10 animate-eat">
       <div className="pellets-inner flex w-full justify-between items-center">
         {[...Array(50)].map((_, i) => (
