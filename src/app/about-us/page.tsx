@@ -108,10 +108,18 @@ const MysteryCard = ({
 
     <style jsx>{`
       .mystery-card {
+ issue-10-Improve-Scroll-Indication-and-Box-Sizing-on-About-Us-Page
+        width: 314.1363220214844px;
+        height: 292.04864501953125px;
+        border: 8px solid;
+        border-radius: 6.95px;
+
         width: 320px;
         height: 290px;
         border: 10px solid;
         border-radius: 7px;
+        il: 0;
+
         position: relative;
         display: flex;
         flex-direction: column;
@@ -130,6 +138,18 @@ const MysteryCard = ({
         right: 8px;
         bottom: 8px;
         border-radius: 4px;
+ issue-10-Improve-Scroll-Indication-and-Box-Sizing-on-About-Us-Page
+        left: 8px; top: 8px; right: 8px; bottom: 8px;
+        border-radius: 4px;
+        z-index: 8;
+      }
+      .corner-dot {
+        width: 18px; height: 18px; border-radius: 50%;
+        position: absolute; z-index: 10;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+
+        left: 5px; top: 5px; right: 5px; bottom: 5px;
+        border-radius: 0;
         z-index: 8;
       }
 
@@ -160,6 +180,7 @@ const MysteryCard = ({
         bottom: 20px;
         right: 20px;
       }
+
 
       .fixed-title {
         position: absolute;
