@@ -378,47 +378,70 @@ const LandingPage = () => {
           ))}
         </div>
 
-        {/* Pac-Man and Pellets */}
-        <div className="relative flex items-center w-full h-12 mx-auto "
-          style={{ maxWidth: "min(63.2vw, 964px)" }}>
-          <img
-            src="/PacMan.gif"
-            alt="Pac-Man"
+        {/* Pac-Man Animation Section */}
+<div className="relative flex items-center w-full h-12 mx-auto overflow-hidden" style={{ maxWidth: "min(63.2vw, 964px)" }}>
+  
+  {/* 1. THE MOVING PAC-MAN */}
+  {/* No mask div needed anymore! */}
+  <div 
+    className="absolute top-1/2 z-20 flex items-center animate-travel"
+    style={{ transform: "translateY(-50%)" }} 
+  >
+      <img
+        src="/PacMan.gif"
+        alt="Pac-Man"
+        style={{
+          width: "min(3.2vw, 48px)",
+          height: "min(3.2vw, 48px)",
+          // transform: "rotate(0deg)" // Un-comment if he is facing wrong way
+        }}
+      />
+  </div>
+
+  {/* 2. THE PELLETS CONTAINER */}
+  {/* We apply 'animate-eat' to this container to progressively hide it */}
+  <div className="pellets-row w-full flex justify-between px-2 relative z-10 animate-eat">
+      <div className="pellets-inner flex w-full justify-between items-center">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
             style={{
-              width: "min(3.2vw, 48px)",
-              height: "min(3.2vw, 48px)",
-              position: "absolute",
-              left: 0,
-              top: "50%",
-              transform: "translateY(-50%)",
-              zIndex: 20,
+              width: "min(1.05vw, 16px)",
+              height: "min(1.05vw, 16px)"
             }}
-          />
-          <div className="pellets-row">
-            <div className="pellets-inner">
-              {[...Array(48)].map((_, i) => (
-                <div
-                  key={i}
-                  style={{
-                    width: "min(1.05vw, 16px)",
-                    height: "min(1.05vw, 16px)"
-                  }}
-                  className="bg-yellow-300 rounded-full shadow"
-                ></div>
-              ))}
-              {[...Array(48)].map((_, i) => (
-                <div
-                  key={i + 48}
-                  style={{
-                    width: "min(1.05vw, 16px)",
-                    height: "min(1.05vw, 16px)"
-                  }}
-                  className="bg-yellow-300 rounded-full shadow"
-                ></div>
-              ))}
-            </div>
-          </div>
-        </div>
+            className="bg-yellow-300 rounded-full shadow flex-shrink-0"
+          ></div>
+        ))}
+      </div>
+  </div>
+</div>
+
+{/* 3. STYLES */}
+<style jsx>{`
+  /* Moves Pac-Man from left to right */
+  @keyframes pacman-travel {
+    0% { left: -48px; } /* Start just outside left edge */
+    100% { left: 100%; } /* Go all the way to right edge */
+  }
+
+  /* Progressively hides the dots from left to right */
+  @keyframes eat-dots {
+    0% { clip-path: inset(0 0 0 0); }      /* Fully visible */
+    100% { clip-path: inset(0 0 0 100%); } /* Fully hidden (clipped from left) */
+  }
+
+  .animate-travel {
+    animation: pacman-travel 5s linear infinite;
+    position: absolute;
+    /* We don't set left:0 here because keyframes handle it */
+  }
+
+  .animate-eat {
+    animation: eat-dots 5s linear infinite;
+    /* Ensure the clip-path works on the container */
+    will-change: clip-path;
+  }
+`}</style>
 
         {/* Second row of 3 event boxes */}
         <div className="flex flex-row justify-center mt-2 mb-16"
