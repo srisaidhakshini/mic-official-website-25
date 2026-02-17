@@ -174,8 +174,6 @@ const MysteryCard = ({
         right: 8px;
       }
 
-
-
       .fixed-title {
         position: absolute;
         top: 22px;
