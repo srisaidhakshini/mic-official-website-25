@@ -49,7 +49,7 @@ const CubeNavbar: React.FC = () => {
       <button
         aria-label="Open navigation"
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 right-4 z-[60] rounded-full p-1 bg-white/90 dark:bg-black/75 backdrop-blur-sm shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400"
+        className="fixed bottom-8 right-4 z-[60] p-0 bg-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400"
       >
         <Image src="/nav_menu.svg" alt="Open Menu" width={40} height={40} />
       </button>
