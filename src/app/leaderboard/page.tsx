@@ -90,6 +90,16 @@ const LeaderboardPage: React.FC = () => {
            />
         </div>
       )}
+
+      {/* Under Construction Simple Text Overlay */}
+      <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <h1 
+          className="text-xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-widest text-center uppercase drop-shadow-lg"
+          style={{ fontFamily: "'Press Start 2P', monospace, sans-serif" }}
+        >
+          Page Under Construction
+        </h1>
+      </div>
     </div>
   );
 };
